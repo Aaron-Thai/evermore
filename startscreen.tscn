@@ -1,0 +1,57 @@
+[gd_scene load_steps=4 format=3 uid="uid://dr3eyyl7hwm8"]
+
+[ext_resource type="Script" uid="uid://c7yxh1lkyf88d" path="res://startscreen.gd" id="1_e4hpb"]
+[ext_resource type="Texture2D" uid="uid://bpgu2rkswr64y" path="res://assets/field.png" id="2_1yvcn"]
+[ext_resource type="StyleBox" uid="uid://c7i50m57e4g1o" path="res://styles/my_new_style_box_texture.tres" id="3_x6rvy"]
+
+[node name="StartScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_e4hpb")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_1yvcn")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 65
+text = "Evermore"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Start" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/normal = ExtResource("3_x6rvy")
+text = "   Start   "
+
+[node name="Audio" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = ExtResource("3_x6rvy")
+text = "   Music Off   "
+
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Audio" to="." method="_on_audio_pressed"]

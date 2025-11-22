@@ -1,0 +1,13 @@
+[background arg="res://assets/field.png" fade="0.0"]
+if {AudioOn} == true:
+	audio music "res://assets/2014 07_ Clement Panchout_ Partycles OST_ Cheerful Title Screen.wav"
+join aira left
+join adelaide right
+aira: hello world
+adelaide: i'm not sure what to say
+leave adelaide
+aira (Sleep): let's bug someone else
+- isi
+	jump isi_timeline/
+- lilac
+	jump lilac_timeline/

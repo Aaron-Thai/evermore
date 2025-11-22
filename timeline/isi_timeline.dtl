@@ -1,0 +1,7 @@
+[background arg="res://assets/field.png" fade="0.0"]
+join aira left
+join isi right
+aira: hey leaf ear
+isi: don't call me that
+set {Isi} += 1.0
+[signal arg="go_to_end"]
