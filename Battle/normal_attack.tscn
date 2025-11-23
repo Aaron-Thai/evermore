@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://1xsptpcvs8ib"]
+
+[ext_resource type="Script" uid="uid://xl51ppbgoucj" path="res://Battle/normal_attack.gd" id="1_ve6kc"]
+[ext_resource type="Texture2D" uid="uid://duhsr18dgcip2" path="res://assets/knife.png" id="1_xp70l"]
+
+[node name="NormalAttack" type="Node2D"]
+script = ExtResource("1_ve6kc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_xp70l")

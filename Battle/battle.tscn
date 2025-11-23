@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://d07ajsqeub6yu"]
+[gd_scene load_steps=10 format=3 uid="uid://d07ajsqeub6yu"]
 
 [ext_resource type="Texture2D" uid="uid://u8yyblagvtmh" path="res://assets/aira.png" id="1_ac2hh"]
+[ext_resource type="Script" uid="uid://tal18vlnpvba" path="res://Battle/battle_manager.gd" id="1_ihngk"]
 [ext_resource type="Texture2D" uid="uid://ds380c0bajl08" path="res://assets/isi.png" id="2_o5tja"]
 [ext_resource type="Texture2D" uid="uid://d4i5n7hyg4w5r" path="res://assets/ult.png" id="3_do635"]
 [ext_resource type="Texture2D" uid="uid://8n7v6pgnnnll" path="res://assets/lilac.png" id="3_o5tja"]
@@ -16,6 +17,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="BattleManager" type="Node" parent="."]
+script = ExtResource("1_ihngk")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -55,10 +59,6 @@ text = "Archmage Isi"
 [node name="EnemyHPLabel" type="Label" parent="ColorRect/MarginContainer/BattleDisplay/EnemyInfo"]
 layout_mode = 2
 text = "HP"
-
-[node name="EnemyHPValue" type="Label" parent="ColorRect/MarginContainer/BattleDisplay/EnemyInfo"]
-layout_mode = 2
-text = "100"
 
 [node name="EnemyStatus" type="Label" parent="ColorRect/MarginContainer/BattleDisplay/EnemyInfo"]
 layout_mode = 2
@@ -103,7 +103,7 @@ text = "Isi
 [node name="BattleArea" type="HBoxContainer" parent="ColorRect/MarginContainer/BattleDisplay/ActionZone"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/separation = 150
+theme_override_constants/separation = 20
 alignment = 1
 
 [node name="ActiveChar" type="Button" parent="ColorRect/MarginContainer/BattleDisplay/ActionZone/BattleArea"]
@@ -111,11 +111,22 @@ layout_mode = 2
 icon = ExtResource("1_ac2hh")
 
 [node name="ActionInfo" type="VBoxContainer" parent="ColorRect/MarginContainer/BattleDisplay/ActionZone/BattleArea"]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="CurrentAction" type="Label" parent="ColorRect/MarginContainer/BattleDisplay/ActionZone/BattleArea/ActionInfo"]
 layout_mode = 2
 text = "Battle Start"
+horizontal_alignment = 1
+
+[node name="AttackHistory1" type="Label" parent="ColorRect/MarginContainer/BattleDisplay/ActionZone/BattleArea/ActionInfo"]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="AttackHistory2" type="Label" parent="ColorRect/MarginContainer/BattleDisplay/ActionZone/BattleArea/ActionInfo"]
+layout_mode = 2
+vertical_alignment = 1
 
 [node name="Enemy" type="Button" parent="ColorRect/MarginContainer/BattleDisplay/ActionZone/BattleArea"]
 layout_mode = 2
@@ -188,7 +199,7 @@ layout_mode = 2
 
 [node name="CharName1" type="Label" parent="ColorRect/MarginContainer/BattleDisplay/Party/Players/Player2/Sprite1Ult1/PlayerContainer"]
 layout_mode = 2
-text = "Aira"
+text = "Iris"
 
 [node name="Sprite1" type="TextureButton" parent="ColorRect/MarginContainer/BattleDisplay/Party/Players/Player2/Sprite1Ult1/PlayerContainer"]
 custom_minimum_size = Vector2(100, 100)
@@ -236,7 +247,7 @@ layout_mode = 2
 
 [node name="CharName1" type="Label" parent="ColorRect/MarginContainer/BattleDisplay/Party/Players/Player3/Sprite1Ult1/PlayerContainer"]
 layout_mode = 2
-text = "Aira"
+text = "Lilac"
 
 [node name="Sprite1" type="TextureButton" parent="ColorRect/MarginContainer/BattleDisplay/Party/Players/Player3/Sprite1Ult1/PlayerContainer"]
 custom_minimum_size = Vector2(100, 100)
@@ -284,7 +295,7 @@ layout_mode = 2
 
 [node name="CharName1" type="Label" parent="ColorRect/MarginContainer/BattleDisplay/Party/Players/Player4/Sprite1Ult1/PlayerContainer"]
 layout_mode = 2
-text = "Aira"
+text = "Adelaide"
 
 [node name="Sprite1" type="TextureButton" parent="ColorRect/MarginContainer/BattleDisplay/Party/Players/Player4/Sprite1Ult1/PlayerContainer"]
 custom_minimum_size = Vector2(100, 100)
@@ -360,3 +371,11 @@ text = "STA"
 [node name="StaminaValue" type="Label" parent="ColorRect/MarginContainer/BattleDisplay/Party/AttackButtons/StaminaInfo"]
 layout_mode = 2
 text = "5"
+
+[node name="ActiveCharPosition" type="Marker2D" parent="."]
+position = Vector2(260, 276)
+
+[node name="EnemyCharPosition" type="Marker2D" parent="."]
+position = Vector2(979, 254)
+
+[connection signal="pressed" from="ColorRect/MarginContainer/BattleDisplay/Party/AttackButtons/AttackContainer/NormalAttack" to="BattleManager" method="_on_normal_attack_pressed"]
