@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjuylx2blm0ix"]
+
+[ext_resource type="Script" uid="uid://dkbi61vd8kr7r" path="res://character.gd" id="1_glpr6"]
+[ext_resource type="Texture2D" uid="uid://u8yyblagvtmh" path="res://assets/aira.png" id="2_pjt0s"]
+
+[node name="Character" type="Node2D"]
+script = ExtResource("1_glpr6")
+display_name = null
+max_hp = null
+max_mp = null
+strength = null
+defense = null
+speed = null
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_pjt0s")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

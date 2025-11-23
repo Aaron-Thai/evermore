@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://dfwxhxpwsfcqy"]
+
+[ext_resource type="PackedScene" uid="uid://bjuylx2blm0ix" path="res://character.tscn" id="1_i431l"]
+[ext_resource type="Script" uid="uid://dmikce27c17kp" path="res://battle_manager.gd" id="1_ip7xm"]
+[ext_resource type="Script" uid="uid://cl3yq8jqioinp" path="res://BattleUI.gd" id="1_oxp8w"]
+[ext_resource type="Script" uid="uid://clawejawia5qt" path="res://enemy_ai.gd" id="2_6t8i5"]
+[ext_resource type="Texture2D" uid="uid://u8yyblagvtmh" path="res://assets/aira.png" id="2_dw4jg"]
+
+[node name="Battle" type="Node2D"]
+
+[node name="Players" type="Node2D" parent="."]
+
+[node name="Player1" parent="Players" instance=ExtResource("1_i431l")]
+sprite_texture = ExtResource("2_dw4jg")
+display_name = "Aira"
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Enemy1" parent="Enemies" instance=ExtResource("1_i431l")]
+
+[node name="EnemyAI" type="Node" parent="Enemies/Enemy1"]
+script = ExtResource("2_6t8i5")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_oxp8w")
+
+[node name="BattleManager" type="Node" parent="."]
+script = ExtResource("1_ip7xm")

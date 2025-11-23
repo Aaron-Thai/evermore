@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://bl57f8jx8djg4"]
+
+[ext_resource type="Texture2D" uid="uid://ds380c0bajl08" path="res://assets/isi.png" id="1_ao1nn"]
+[ext_resource type="Script" path="res://Battle/enemy_button.gd" id="2_1ssrf"]
+
+[node name="EnemyButton" type="TextureButton"]
+texture_normal = ExtResource("1_ao1nn")
+script = ExtResource("2_1ssrf")
