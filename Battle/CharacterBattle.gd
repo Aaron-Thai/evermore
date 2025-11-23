@@ -18,3 +18,6 @@ func take_damage(amount: int):
 
 func deal_damage(target: CharacterBattle):
 	target.take_damage(attack)
+
+func is_dead() -> bool:
+	return hp <= 0

@@ -115,7 +115,7 @@ custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="CurrentAction" type="Label" parent="ColorRect/MarginContainer/BattleDisplay/ActionZone/BattleArea/ActionInfo"]
+[node name="BattleState" type="Label" parent="ColorRect/MarginContainer/BattleDisplay/ActionZone/BattleArea/ActionInfo"]
 layout_mode = 2
 text = "Battle Start"
 horizontal_alignment = 1
