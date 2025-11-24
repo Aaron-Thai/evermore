@@ -1,6 +1,6 @@
-[background arg="res://assets/field.png" fade="0.0"]
+[background arg="res://assets/Backgrounds/ball.png" fade="0.0"]
 if {AudioOn} == true:
-	audio music "res://assets/2014 07_ Clement Panchout_ Partycles OST_ Cheerful Title Screen.wav"
+	audio music "res://assets/Lucky Break.mp3"
 join aira left
 join adelaide right
 aira: hello world

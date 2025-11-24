@@ -1,14 +1,20 @@
-[gd_scene load_steps=10 format=3 uid="uid://d07ajsqeub6yu"]
+[gd_scene load_steps=16 format=3 uid="uid://d07ajsqeub6yu"]
 
-[ext_resource type="Texture2D" uid="uid://u8yyblagvtmh" path="res://assets/aira.png" id="1_ac2hh"]
 [ext_resource type="Script" uid="uid://tal18vlnpvba" path="res://Battle/battle_manager.gd" id="1_ihngk"]
+[ext_resource type="Theme" uid="uid://b1pjjfeg51abq" path="res://styles/new_theme.tres" id="1_lksgk"]
 [ext_resource type="Texture2D" uid="uid://ds380c0bajl08" path="res://assets/isi.png" id="2_o5tja"]
-[ext_resource type="Texture2D" uid="uid://d4i5n7hyg4w5r" path="res://assets/ult.png" id="3_do635"]
-[ext_resource type="Texture2D" uid="uid://8n7v6pgnnnll" path="res://assets/lilac.png" id="3_o5tja"]
-[ext_resource type="Texture2D" uid="uid://cf477821xv5gl" path="res://assets/adelaide.png" id="5_do635"]
-[ext_resource type="Texture2D" uid="uid://d4bmq8hquqwpy" path="res://assets/iris.png" id="6_ploow"]
-[ext_resource type="Texture2D" uid="uid://elidcc7bq6fa" path="res://assets/normalattack.png" id="7_bjo3u"]
-[ext_resource type="Texture2D" uid="uid://btm4c0ipxkly1" path="res://assets/skill.png" id="8_ihngk"]
+[ext_resource type="Texture2D" uid="uid://c34btd3ttbgex" path="res://assets/Backgrounds/ball_dark.png" id="2_yrmgv"]
+[ext_resource type="Texture2D" uid="uid://cietty5r631bb" path="res://assets/airault.png" id="6_4m2ey"]
+[ext_resource type="Texture2D" uid="uid://bsfvuj6ymmpqg" path="res://assets/airatest.png" id="6_iurou"]
+[ext_resource type="Texture2D" uid="uid://bjyalyal2elv4" path="res://assets/iris-mitsua.png" id="7_4m2ey"]
+[ext_resource type="Texture2D" uid="uid://cf02imwhki0kt" path="res://assets/irisult.png" id="8_iurou"]
+[ext_resource type="Texture2D" uid="uid://j3p8klfst6fq" path="res://assets/lilacup.png" id="9_4m2ey"]
+[ext_resource type="Texture2D" uid="uid://dl6tsvdhdw4g8" path="res://assets/mitsuaic.png" id="9_lksgk"]
+[ext_resource type="Texture2D" uid="uid://dxj1afffwdkcb" path="res://assets/lilacult.png" id="10_iurou"]
+[ext_resource type="AudioStream" uid="uid://cxnveuvpaqw5f" path="res://assets/chpn_op66.mp3" id="10_yhs05"]
+[ext_resource type="Texture2D" uid="uid://c4ypu761xserq" path="res://assets/adeult.png" id="11_iurou"]
+[ext_resource type="Texture2D" uid="uid://b3gw8ek2pq1hs" path="res://assets/normalattackicon.png" id="13_iurou"]
+[ext_resource type="Texture2D" uid="uid://vocx1fl7b8qm" path="res://assets/skillicon.png" id="14_iurou"]
 
 [node name="Battle" type="Control"]
 layout_mode = 3
@@ -17,9 +23,20 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_lksgk")
 
 [node name="BattleManager" type="Node" parent="."]
 script = ExtResource("1_ihngk")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_yrmgv")
+expand_mode = 1
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -28,7 +45,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.08242298, 7.0240812e-06, 0.08444584, 1)
+color = Color(0.08235294, 0, 0.08627451, 0)
 
 [node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
 layout_mode = 1
@@ -106,9 +123,12 @@ size_flags_horizontal = 3
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="ActiveChar" type="Button" parent="ColorRect/MarginContainer/BattleDisplay/ActionZone/BattleArea"]
+[node name="ActiveChar" type="TextureButton" parent="ColorRect/MarginContainer/BattleDisplay/ActionZone/BattleArea"]
+custom_minimum_size = Vector2(250, 100)
 layout_mode = 2
-icon = ExtResource("1_ac2hh")
+texture_normal = ExtResource("6_iurou")
+ignore_texture_size = true
+stretch_mode = 5
 
 [node name="ActionInfo" type="VBoxContainer" parent="ColorRect/MarginContainer/BattleDisplay/ActionZone/BattleArea"]
 custom_minimum_size = Vector2(100, 0)
@@ -156,7 +176,7 @@ text = "Aira"
 [node name="Sprite1" type="TextureButton" parent="ColorRect/MarginContainer/BattleDisplay/Party/Players/Player1/Sprite1Ult1/PlayerContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-texture_normal = ExtResource("1_ac2hh")
+texture_normal = ExtResource("6_iurou")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -166,7 +186,7 @@ layout_mode = 2
 [node name="Ult1" type="TextureButton" parent="ColorRect/MarginContainer/BattleDisplay/Party/Players/Player1/Sprite1Ult1/UltContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-texture_normal = ExtResource("3_do635")
+texture_normal = ExtResource("6_4m2ey")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -204,7 +224,7 @@ text = "Iris"
 [node name="Sprite1" type="TextureButton" parent="ColorRect/MarginContainer/BattleDisplay/Party/Players/Player2/Sprite1Ult1/PlayerContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-texture_normal = ExtResource("6_ploow")
+texture_normal = ExtResource("7_4m2ey")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -214,7 +234,7 @@ layout_mode = 2
 [node name="Ult1" type="TextureButton" parent="ColorRect/MarginContainer/BattleDisplay/Party/Players/Player2/Sprite1Ult1/UltContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-texture_normal = ExtResource("3_do635")
+texture_normal = ExtResource("8_iurou")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -252,7 +272,7 @@ text = "Lilac"
 [node name="Sprite1" type="TextureButton" parent="ColorRect/MarginContainer/BattleDisplay/Party/Players/Player3/Sprite1Ult1/PlayerContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-texture_normal = ExtResource("3_o5tja")
+texture_normal = ExtResource("9_4m2ey")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -262,7 +282,7 @@ layout_mode = 2
 [node name="Ult1" type="TextureButton" parent="ColorRect/MarginContainer/BattleDisplay/Party/Players/Player3/Sprite1Ult1/UltContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-texture_normal = ExtResource("3_do635")
+texture_normal = ExtResource("10_iurou")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -300,7 +320,7 @@ text = "Adelaide"
 [node name="Sprite1" type="TextureButton" parent="ColorRect/MarginContainer/BattleDisplay/Party/Players/Player4/Sprite1Ult1/PlayerContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-texture_normal = ExtResource("5_do635")
+texture_normal = ExtResource("9_lksgk")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -310,7 +330,7 @@ layout_mode = 2
 [node name="Ult1" type="TextureButton" parent="ColorRect/MarginContainer/BattleDisplay/Party/Players/Player4/Sprite1Ult1/UltContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-texture_normal = ExtResource("3_do635")
+texture_normal = ExtResource("11_iurou")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -338,10 +358,22 @@ layout_mode = 2
 [node name="AttackContainer" type="HBoxContainer" parent="ColorRect/MarginContainer/BattleDisplay/Party/AttackButtons"]
 layout_mode = 2
 
-[node name="NormalAttack" type="TextureButton" parent="ColorRect/MarginContainer/BattleDisplay/Party/AttackButtons/AttackContainer"]
+[node name="NAContainer" type="VBoxContainer" parent="ColorRect/MarginContainer/BattleDisplay/Party/AttackButtons/AttackContainer"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect/MarginContainer/BattleDisplay/Party/AttackButtons/AttackContainer/NAContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="NALabel" type="Label" parent="ColorRect/MarginContainer/BattleDisplay/Party/AttackButtons/AttackContainer/NAContainer"]
+layout_mode = 2
+text = "attack"
+
+[node name="NormalAttack" type="TextureButton" parent="ColorRect/MarginContainer/BattleDisplay/Party/AttackButtons/AttackContainer/NAContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-texture_normal = ExtResource("7_bjo3u")
+texture_normal = ExtResource("13_iurou")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -351,14 +383,14 @@ layout_mode = 2
 [node name="Skill" type="TextureButton" parent="ColorRect/MarginContainer/BattleDisplay/Party/AttackButtons/AttackContainer/SkillContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-texture_normal = ExtResource("8_ihngk")
+texture_normal = ExtResource("14_iurou")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="ColorRect" type="ColorRect" parent="ColorRect/MarginContainer/BattleDisplay/Party/AttackButtons/AttackContainer/SkillContainer"]
-custom_minimum_size = Vector2(0, 30)
+[node name="SLabel" type="Label" parent="ColorRect/MarginContainer/BattleDisplay/Party/AttackButtons/AttackContainer/SkillContainer"]
 layout_mode = 2
-color = Color(0, 0, 0, 0)
+text = "skill"
+horizontal_alignment = 2
 
 [node name="StaminaInfo" type="HBoxContainer" parent="ColorRect/MarginContainer/BattleDisplay/Party/AttackButtons"]
 layout_mode = 2
@@ -378,4 +410,7 @@ position = Vector2(260, 276)
 [node name="EnemyCharPosition" type="Marker2D" parent="."]
 position = Vector2(979, 254)
 
-[connection signal="pressed" from="ColorRect/MarginContainer/BattleDisplay/Party/AttackButtons/AttackContainer/NormalAttack" to="BattleManager" method="_on_normal_attack_pressed"]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_yhs05")
+
+[connection signal="pressed" from="ColorRect/MarginContainer/BattleDisplay/Party/AttackButtons/AttackContainer/NAContainer/NormalAttack" to="BattleManager" method="_on_normal_attack_pressed"]

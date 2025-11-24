@@ -3,7 +3,6 @@ extends Node
 var aira: CharacterBattle
 var isi: CharacterBattle
 
-
 @onready var enemy_hp_label: Label = $"../ColorRect/MarginContainer/BattleDisplay/EnemyInfo/EnemyHPLabel"
 @onready var battle_state: Label = $"../ColorRect/MarginContainer/BattleDisplay/ActionZone/BattleArea/ActionInfo/BattleState"
 @onready var battle_log_label: Label = $"../ColorRect/MarginContainer/BattleDisplay/ActionZone/BattleArea/ActionInfo/AttackHistory1"
@@ -16,6 +15,7 @@ func _ready():
 	aira = CharacterBattle.new("Aira", 100, 10)
 	isi = CharacterBattle.new("Isi", 100, 20)
 	
+	$"../AudioStreamPlayer2D".play()
 	update_ui()
 	
 		# Print to check
